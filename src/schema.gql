@@ -2,6 +2,39 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""암장"""
+type Gym {
+  id: ID!
+  name: String!
+  latitude: Float!
+  longitude: Float!
+  address: String!
+  company: String!
+  isDeleted: Boolean!
+}
+
+"""암장 벽"""
+type Wall {
+  id: ID!
+  gym: Gym!
+  name: String!
+  isDeleted: Boolean!
+}
+
+"""벽 세팅 스케줄"""
+type WallSchedule {
+  id: ID!
+  wall: Wall!
+  settingDate: Date!
+  isDeleted: Boolean!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
 type Query {
   hello: String!
+  gyms: [Gym!]!
+  walls: [Wall!]!
+  wallSchedules: [WallSchedule!]!
 }

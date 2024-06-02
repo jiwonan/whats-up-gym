@@ -7,6 +7,7 @@ import { HelloResolver } from './hello.resolver';
 import { DateScalar } from './scalars/date.scalar';
 import { GymModule } from './gym/gym.module';
 import { WallModule } from './wall/wall.module';
+import { WallScheduleModule } from './wallSchedule/wallSchedule.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { WallModule } from './wall/wall.module';
     }),
     GymModule,
     WallModule,
+    WallScheduleModule,
   ],
   providers: [HelloResolver, DateScalar],
 })
