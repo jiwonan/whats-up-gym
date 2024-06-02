@@ -6,6 +6,7 @@ import { join } from 'path';
 import { HelloResolver } from './hello.resolver';
 import { DateScalar } from './scalars/date.scalar';
 import { GymModule } from './gym/gym.module';
+import { WallModule } from './wall/wall.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { GymModule } from './gym/gym.module';
       playground: true,
     }),
     GymModule,
+    WallModule,
   ],
   providers: [HelloResolver, DateScalar],
 })
