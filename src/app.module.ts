@@ -4,6 +4,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import * as process from 'process';
 import { join } from 'path';
 import { HelloResolver } from './hello.resolver';
+import { DateScalar } from './scalars/date.scalar';
+import { GymModule } from './gym/gym.module';
 
 @Module({
   imports: [
@@ -12,7 +14,8 @@ import { HelloResolver } from './hello.resolver';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       playground: true,
     }),
+    GymModule,
   ],
-  providers: [HelloResolver],
+  providers: [HelloResolver, DateScalar],
 })
 export class AppModule {}
