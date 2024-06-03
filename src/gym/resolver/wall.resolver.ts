@@ -1,6 +1,6 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { WallService } from './wall.service';
-import { Wall } from './wall.entity';
+import { WallService } from '../service/wall.service';
+import { Wall } from '../model/wall.model';
 
 @Resolver()
 export class WallResolver {

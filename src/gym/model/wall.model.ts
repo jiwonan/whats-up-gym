@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Gym } from '../gym/gym.entity';
+import { Gym } from './gym.model';
 
 @ObjectType({ description: '암장 벽' })
 export class Wall {

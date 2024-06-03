@@ -3,11 +3,13 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import * as process from 'process';
 import { join } from 'path';
-import { HelloResolver } from './hello.resolver';
 import { DateScalar } from './scalars/date.scalar';
-import { GymModule } from './gym/gym.module';
-import { WallModule } from './wall/wall.module';
-import { WallScheduleModule } from './wallSchedule/wallSchedule.module';
+import { GymModule } from './gym/module/gym.module';
+import { WallModule } from './gym/module/wall.module';
+import { WallScheduleModule } from './gym/module/wallSchedule.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { getTypeOrmConfig } from './config/typeorm.config';
 
 @Module({
   imports: [
@@ -16,10 +18,19 @@ import { WallScheduleModule } from './wallSchedule/wallSchedule.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       playground: true,
     }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) =>
+        getTypeOrmConfig(configService),
+      inject: [ConfigService],
+    }),
     GymModule,
     WallModule,
     WallScheduleModule,
   ],
-  providers: [HelloResolver, DateScalar],
+  providers: [DateScalar],
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { WallScheduleService } from './wallSchedule.service';
-import { WallSchedule } from './wallSchedule.entity';
+import { WallScheduleService } from '../service/wallSchedule.service';
+import { WallSchedule } from '../model/wallSchedule.model';
 
 @Resolver()
 export class WallScheduleResolver {

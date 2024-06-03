@@ -1,6 +1,6 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { Gym } from './gym.entity';
-import { GymService } from './gym.service';
+import { GymService } from '../service/gym.service';
+import { Gym } from '../model/gym.model';
 
 @Resolver()
 export class GymResolver {

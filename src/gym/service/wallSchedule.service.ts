@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { WallSchedule } from './wallSchedule.entity';
+import { WallSchedule } from '../model/wallSchedule.model';
 
 @Injectable()
 export class WallScheduleService {

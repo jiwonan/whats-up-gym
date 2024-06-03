@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Wall } from '../wall/wall.entity';
+import { Wall } from './wall.model';
 
 @ObjectType({ description: '벽 세팅 스케줄' })
 export class WallSchedule {

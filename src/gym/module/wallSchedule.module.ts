@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { WallScheduleResolver } from './wallSchedule.resolver';
-import { WallScheduleService } from './wallSchedule.service';
+import { WallScheduleResolver } from '../resolver/wallSchedule.resolver';
+import { WallScheduleService } from '../service/wallSchedule.service';
 
 @Module({
   providers: [WallScheduleResolver, WallScheduleService],
