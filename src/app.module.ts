@@ -20,6 +20,7 @@ import { getTypeOrmConfig } from './config/typeorm.config';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
+      // envFilePath: '.env'
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

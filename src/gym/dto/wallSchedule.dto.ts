@@ -1,13 +1,13 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Wall } from './wall.model';
+import { WallDto } from './wall.dto';
 
 @ObjectType({ description: '벽 세팅 스케줄' })
-export class WallSchedule {
+export class WallScheduleDto {
   @Field((type) => ID)
   id: number;
 
-  @Field((type) => Wall)
-  wall: Wall;
+  @Field((type) => WallDto)
+  wall: WallDto;
 
   @Field((type) => Date)
   settingDate: Date;

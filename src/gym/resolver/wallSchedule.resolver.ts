@@ -1,12 +1,12 @@
 import { Query, Resolver } from '@nestjs/graphql';
 import { WallScheduleService } from '../service/wallSchedule.service';
-import { WallSchedule } from '../model/wallSchedule.model';
+import { WallScheduleDto } from '../dto/wallSchedule.dto';
 
 @Resolver()
 export class WallScheduleResolver {
   constructor(private readonly wallScheduleService: WallScheduleService) {}
 
-  @Query(() => [WallSchedule])
+  @Query(() => [WallScheduleDto])
   wallSchedules() {
     return this.wallScheduleService.findAll();
   }

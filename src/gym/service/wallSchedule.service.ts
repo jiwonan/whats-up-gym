@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { WallSchedule } from '../model/wallSchedule.model';
+import { WallScheduleDto } from '../dto/wallSchedule.dto';
 
 @Injectable()
 export class WallScheduleService {
-  private wallSchedules: WallSchedule[] = [];
+  private wallSchedules: WallScheduleDto[] = [];
 
-  findAll(): WallSchedule[] {
+  findAll(): WallScheduleDto[] {
     return this.wallSchedules;
   }
 }

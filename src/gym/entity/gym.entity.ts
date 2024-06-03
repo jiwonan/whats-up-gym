@@ -5,21 +5,37 @@ export class Gym {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 150,
+  })
   name: string;
 
-  @Column()
+  @Column({
+    type: 'float',
+  })
   latitude: number;
 
-  @Column()
+  @Column({
+    type: 'float',
+  })
   longitude: number;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 250,
+  })
   address: string;
 
-  @Column()
+  @Column({
+    type: 'varchar',
+    length: 150,
+  })
   company: string;
 
-  @Column()
+  @Column({
+    type: 'boolean',
+    default: false,
+  })
   isDeleted: boolean;
 }

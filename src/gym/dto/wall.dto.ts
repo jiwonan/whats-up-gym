@@ -1,13 +1,13 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { Gym } from './gym.model';
+import { GymDto } from './gym.dto';
 
 @ObjectType({ description: '암장 벽' })
-export class Wall {
+export class WallDto {
   @Field((type) => ID)
   id: number;
 
-  @Field((type) => Gym)
-  gym: Gym;
+  @Field((type) => GymDto)
+  gym: GymDto;
 
   @Field((type) => String)
   name: string;
