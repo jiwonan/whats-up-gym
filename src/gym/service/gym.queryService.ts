@@ -16,7 +16,7 @@ export class GymQueryService {
   }
 
   find(id: number): Promise<Gym | null> {
-    return this.gymRepository.findOneBy({ id: id });
+    return this.gymRepository.findOneBy({ id: id, isDeleted: false });
   }
 
   async create(createGymDto: CreateGymDto): Promise<Gym> {

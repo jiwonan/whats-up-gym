@@ -5,7 +5,6 @@ import { GymQueryService } from './gym.queryService';
 import { EntityNotFoundError } from 'typeorm';
 import { Gym } from '../entity/gym.entity';
 import { CreateWallDto } from '../dto/createWall.dto';
-import { GymDto } from '../dto/gym.dto';
 
 @Injectable()
 export class WallService {
@@ -15,14 +14,15 @@ export class WallService {
   ) {}
 
   async findAll(): Promise<WallDto[]> {
-    const walls = await this.wallQueryService.findAllWithGym();
+    const walls = await this.wallQueryService.findAll();
     return walls.map((wall) => {
-      return new WallDto(wall, new GymDto(wall.gym));
+      return new WallDto(wall);
     });
   }
 
   async createWall(gymId: number, wallName: string): Promise<WallDto> {
     const gym = await this.gymQueryService.find(gymId);
+
     if (gym === null) {
       throw new EntityNotFoundError(
         Gym,
@@ -33,6 +33,6 @@ export class WallService {
     const createWallDto = new CreateWallDto(gym, wallName);
     const newWall = await this.wallQueryService.create(createWallDto);
 
-    return new WallDto(newWall, new GymDto(gym));
+    return new WallDto(newWall);
   }
 }

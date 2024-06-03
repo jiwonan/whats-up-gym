@@ -9,11 +9,12 @@ export class WallQueryService {
     private wallRepository: Repository<Wall>,
   ) {}
 
-  findAllWithGym(): Promise<Wall[]> {
-    return this.wallRepository
-      .createQueryBuilder('wall')
-      .leftJoinAndSelect('wall.gym', 'gym')
-      .getMany();
+  findAll(): Promise<Wall[]> {
+    return this.wallRepository.find();
+  }
+
+  find(id: number): Promise<Wall | null> {
+    return this.wallRepository.findOneBy({ id: id, isDeleted: false });
   }
 
   async create(createWallDto: CreateWallDto): Promise<Wall> {

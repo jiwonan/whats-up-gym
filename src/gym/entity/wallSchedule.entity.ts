@@ -8,6 +8,7 @@ export class WallSchedule extends BaseEntity {
   id: number;
 
   @ManyToOne(() => Wall, {
+    eager: true,
     nullable: false,
   })
   wall: Wall;

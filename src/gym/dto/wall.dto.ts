@@ -16,10 +16,10 @@ export class WallDto {
   @Field(() => Boolean)
   isDeleted: boolean;
 
-  constructor(wall: Wall, gymDto: GymDto) {
+  constructor(wall: Wall) {
     this.id = wall.id;
     this.name = wall.name;
     this.isDeleted = wall.isDeleted;
-    this.gym = gymDto;
+    this.gym = new GymDto(wall.gym);
   }
 }

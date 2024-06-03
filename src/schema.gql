@@ -39,6 +39,8 @@ type Query {
 
 type Mutation {
   createGym(createGymDto: CreateGymDto!): GymDto!
+  createWall(gymId: Int!, wallName: String!): WallDto!
+  createWallSchedule(wallId: Int!, settingDate: Date!): WallScheduleDto!
 }
 
 input CreateGymDto {
