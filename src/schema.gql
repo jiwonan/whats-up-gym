@@ -35,6 +35,7 @@ type Query {
   gyms: [GymDto!]!
   walls: [WallDto!]!
   wallSchedules: [WallScheduleDto!]!
+  wallSchedulesInTerm(startDate: Date!, endDate: Date!): [WallScheduleDto!]!
 }
 
 type Mutation {
