@@ -19,7 +19,7 @@ export class WallDto {
   constructor(wall: Wall) {
     this.id = wall.id;
     this.name = wall.name;
-    this.isDeleted = wall.isDeleted;
+    this.isDeleted = wall.deletedAt !== null;
     this.gym = new GymDto(wall.gym);
   }
 }

@@ -27,10 +27,4 @@ export class Wall extends BaseEntity {
     length: 150,
   })
   name: string;
-
-  @Column({
-    type: 'boolean',
-    default: false,
-  })
-  isDeleted: boolean;
 }

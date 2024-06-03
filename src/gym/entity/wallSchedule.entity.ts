@@ -17,10 +17,4 @@ export class WallSchedule extends BaseEntity {
     type: 'timestamp',
   })
   settingDate: Date;
-
-  @Column({
-    type: 'boolean',
-    default: false,
-  })
-  isDeleted: boolean;
 }

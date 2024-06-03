@@ -20,6 +20,6 @@ export class WallScheduleDto {
     this.id = wallSchedule.id;
     this.wall = new WallDto(wallSchedule.wall);
     this.settingDate = wallSchedule.settingDate;
-    this.isDeleted = wallSchedule.isDeleted;
+    this.isDeleted = wallSchedule.deletedAt !== null;
   }
 }

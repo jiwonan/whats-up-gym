@@ -33,10 +33,4 @@ export class Gym extends BaseEntity {
     length: 150,
   })
   company: string;
-
-  @Column({
-    type: 'boolean',
-    default: false,
-  })
-  isDeleted: boolean;
 }
