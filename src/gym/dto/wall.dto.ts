@@ -3,15 +3,15 @@ import { GymDto } from './gym.dto';
 
 @ObjectType({ description: '암장 벽' })
 export class WallDto {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: number;
 
-  @Field((type) => GymDto)
+  @Field(() => GymDto)
   gym: GymDto;
 
-  @Field((type) => String)
+  @Field(() => String)
   name: string;
 
-  @Field((type) => Boolean)
+  @Field(() => Boolean)
   isDeleted: boolean;
 }
