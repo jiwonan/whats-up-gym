@@ -14,7 +14,7 @@ export class WallQueryService {
   }
 
   find(id: number): Promise<Wall | null> {
-    return this.wallRepository.findOneBy({ id: id, isDeleted: false });
+    return this.wallRepository.findOneBy({ id: id });
   }
 
   async create(createWallDto: CreateWallDto): Promise<Wall> {

@@ -15,6 +15,21 @@ export class WallScheduleQueryService {
     return this.wallScheduleRepository.find();
   }
 
+  findAllBySettingDateBetween(
+    startDate: Date,
+    endDate: Date,
+  ): Promise<WallSchedule[]> {
+    return this.wallScheduleRepository
+      .createQueryBuilder('wall-schedule')
+      .leftJoinAndSelect('wall-schedule.wall', 'wall')
+      .leftJoinAndSelect('wall.gym', 'gym')
+      .where('wall-schedule.settingDate BETWEEN :startDate AND :endDate', {
+        startDate: startDate,
+        endDate: endDate,
+      })
+      .getMany();
+  }
+
   async create(
     createWallScheduleDto: CreateWallScheduleDto,
   ): Promise<WallSchedule> {

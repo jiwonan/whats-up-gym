@@ -20,6 +20,23 @@ export class WallScheduleService {
     });
   }
 
+  async getWallSchedulesInTerm(
+    startDate: Date,
+    endDate: Date,
+  ): Promise<WallScheduleDto[]> {
+    const schedules =
+      await this.wallScheduleQueryService.findAllBySettingDateBetween(
+        startDate,
+        endDate,
+      );
+
+    console.log(schedules);
+
+    return schedules.map((schedule) => {
+      return new WallScheduleDto(schedule);
+    });
+  }
+
   async createWallSchedule(
     wallId: number,
     settingDate: Date,

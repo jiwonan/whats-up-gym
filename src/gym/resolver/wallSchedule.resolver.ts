@@ -11,6 +11,14 @@ export class WallScheduleResolver {
     return this.wallScheduleService.findAll();
   }
 
+  @Query(() => [WallScheduleDto])
+  wallSchedulesInTerm(
+    @Args('startDate', { type: () => Date }) startDate: Date,
+    @Args('endDate', { type: () => Date }) endDate: Date,
+  ): Promise<WallScheduleDto[]> {
+    return this.wallScheduleService.getWallSchedulesInTerm(startDate, endDate);
+  }
+
   @Mutation(() => WallScheduleDto)
   createWallSchedule(
     @Args('wallId', { type: () => Int }) wallId: number,
