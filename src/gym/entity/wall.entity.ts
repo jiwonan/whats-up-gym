@@ -1,8 +1,9 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Gym } from './gym.entity';
+import { BaseEntity } from '../../common/entity/base.entity';
 
 @Entity()
-export class Wall {
+export class Wall extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
