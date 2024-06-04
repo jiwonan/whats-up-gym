@@ -10,6 +10,7 @@ import { WallScheduleModule } from './gym/module/wallSchedule.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { getTypeOrmConfig } from './config/typeorm.config';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { getTypeOrmConfig } from './config/typeorm.config';
     WallModule,
     WallScheduleModule,
   ],
+  controllers: [AppController],
   providers: [DateScalar],
 })
 export class AppModule {}
