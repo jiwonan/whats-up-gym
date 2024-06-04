@@ -1,7 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity } from '../../common/entity/base.entity';
 
 @Entity()
-export class Gym {
+export class Gym extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -32,10 +33,4 @@ export class Gym {
     length: 150,
   })
   company: string;
-
-  @Column({
-    type: 'boolean',
-    default: false,
-  })
-  isDeleted: boolean;
 }
