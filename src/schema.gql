@@ -35,10 +35,13 @@ type Query {
   gyms: [GymDto!]!
   walls: [WallDto!]!
   wallSchedules: [WallScheduleDto!]!
+  wallSchedulesInTerm(startDate: Date!, endDate: Date!): [WallScheduleDto!]!
 }
 
 type Mutation {
   createGym(createGymDto: CreateGymDto!): GymDto!
+  createWall(gymId: Int!, wallName: String!): WallDto!
+  createWallSchedule(wallId: Int!, settingDate: Date!): WallScheduleDto!
 }
 
 input CreateGymDto {

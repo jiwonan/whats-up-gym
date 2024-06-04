@@ -5,15 +5,15 @@ import { CreateGymDto } from '../dto/createGym.dto';
 
 @Injectable()
 export class GymService {
-  constructor(private readonly gymRepository: GymQueryService) {}
+  constructor(private readonly gymQueryService: GymQueryService) {}
 
   async findAll(): Promise<GymDto[]> {
-    const gyms = await this.gymRepository.findAll();
+    const gyms = await this.gymQueryService.findAll();
     return gyms.map((gym) => new GymDto(gym));
   }
 
   async create(createGymDto: CreateGymDto): Promise<GymDto> {
-    const newGym = await this.gymRepository.create(createGymDto);
+    const newGym = await this.gymQueryService.create(createGymDto);
     return new GymDto(newGym);
   }
 }

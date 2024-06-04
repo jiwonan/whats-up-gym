@@ -31,6 +31,6 @@ export class GymDto {
     this.longitude = gym.longitude;
     this.address = gym.address;
     this.company = gym.company;
-    this.isDeleted = gym.isDeleted;
+    this.isDeleted = gym.deletedAt !== null;
   }
 }
